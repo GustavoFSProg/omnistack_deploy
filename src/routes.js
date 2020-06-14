@@ -6,6 +6,8 @@ const profileController = require('../src/controllers/profile-controller')
 const sessionController = require('../src/controllers/session-controller')
 const { celebrate, Segments, Joi } = require('celebrate')
 
+routes.get('/', ongController.get)
+
 routes.post(
   '/ongs',
   celebrate({
