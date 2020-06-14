@@ -50,7 +50,7 @@ routes.get(
   '/profile/:id',
   celebrate({
     [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required(),
+      authorization: Joi.string(),
     }).unknown(),
   }),
   profileController.getIncidentsByOngId
