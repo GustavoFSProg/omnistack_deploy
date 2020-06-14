@@ -1,15 +1,26 @@
-const routes = require('./routes')
+const cors = require('cors')
+const dotenv = require('dotenv')
 const express = require('express')
+const routes = require('./routes')
+const path = require('path')
 
+dotenv.config()
 const app = express()
+app.use(express.json())
+app.use(cors())
 
-app.use(express.json({}))
-app.use(routes)
+const { PORT } = process.env
 
-app.listen(3000)
+const server = require('http').Server(app)
 
-console.log('API rodando na porta 3001')
+app.use((req, res, next) => {
+  req.io = io
 
-// export default app
+  next()
+})
 
-module.exports = app
+app.use('/', routes)
+
+server.listen(PORT)
+
+console.log(`API Running at port ${PORT}`)
