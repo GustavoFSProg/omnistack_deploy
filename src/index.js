@@ -13,12 +13,6 @@ const { PORT } = process.env
 
 const server = require('http').Server(app)
 
-app.use((req, res, next) => {
-  req.io = io
-
-  next()
-})
-
 app.use('/', routes)
 
 server.listen(PORT)
