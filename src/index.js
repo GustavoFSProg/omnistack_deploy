@@ -1,26 +1,26 @@
-const cors = require('cors')
-const dotenv = require('dotenv')
-const express = require('express')
-const routes = require('./routes')
-const path = require('path')
+// const cors = require('cors')
+// const dotenv = require('dotenv')
+// const express = require('express')
+// const routes = require('./routes')
+// const path = require('path')
 
-dotenv.config()
-const app = express()
-app.use(express.json())
-app.use(cors())
+// dotenv.config()
+// const app = express()
+// app.use(express.json())
+// app.use(cors())
 
-const { PORT } = process.env
+// const { PORT } = process.env
 
-const server = require('http').Server(app)
+// const server = require('http').Server(app)
 
-app.use((req, res, next) => {
-  req.io = io
+// app.use((req, res, next) => {
+//   req.io = io
 
-  next()
-})
+//   next()
+// })
 
-app.use('/', routes)
+// app.use('/', routes)
 
-server.listen(PORT)
+// server.listen(PORT)
 
-console.log(`API Running at port ${PORT}`)
+// console.log(`API Running at port ${PORT}`)
